@@ -12,9 +12,11 @@ void PersonCreateController::handleRequest(Poco::Net::HTTPServerRequest &req,
 {
 	bool correctJson;
 	uint32_t id;
-	std::string body;
 	PersonModel model;
-	req.stream() >> body;
+	std::string body = "", tmp;
+	while (req.stream() >> tmp)
+		body += tmp;
+	std::cout << body << "\n";
 	correctJson = model.fromJson(body, true);
 	if (!correctJson)
 	{
