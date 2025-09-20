@@ -1,0 +1,8 @@
+services:
+  tests:
+    image: tests:latest
+    build:
+      context: .
+      dockerfile: ./backend.dockerfile
+      target: build
+    command: bash -c "cd /app/build; ctest"

@@ -1,0 +1,7 @@
+add_subdirectory(./models)
+add_subdirectory(./app)
+add_subdirectory(./controllerFactory)
+add_subdirectory(./controllers)
+add_subdirectory(./creator)
+add_subdirectory(./repositories)
+add_subdirectory(./util)

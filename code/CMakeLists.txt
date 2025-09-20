@@ -1,0 +1,5 @@
+include_directories(./libPoco/include)
+add_executable(lab_01 main.cpp)
+add_subdirectory(./src)
+add_subdirectory(./tests)
+target_link_libraries(lab_01 app)
