@@ -19,6 +19,8 @@ void PersonGetByIdController::handleRequest(Poco::Net::HTTPServerRequest &req,
 		resp.setStatus(Poco::Net::HTTPResponse::HTTPStatus::HTTP_OK);
 		resp.setContentType("application/json");
 		resp.send() << model->toJson();
+		std::cout << "Return json on GetById\n" << model->toJson() << "\n";
+		std::cout.flush();
 	}
 	else
 	{

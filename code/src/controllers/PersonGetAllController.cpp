@@ -23,5 +23,7 @@ void PersonGetAllController::handleRequest([[maybe_unused]] Poco::Net::HTTPServe
 			message += ",";
 	}
 	message += "]";
+	std::cout << "Return json on GetAll\n" << message << "\n";
+	std::cout.flush();
 	resp.sendBuffer(message.data(), message.size());
 }

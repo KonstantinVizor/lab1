@@ -14,9 +14,12 @@ void PersonUpdateByIdController::handleRequest(Poco::Net::HTTPServerRequest &req
 	bool correctJson;
 	uint32_t id;
 	IndexParser parser;
-	std::string body;
+	std::string body = "", tmp;
 	std::optional<PersonModel> model;
-	req.stream() >> body;
+	while (req.stream() >> tmp)
+		body += tmp;
+	std::cout << "Get json to Update:\n" << body << "\n";
+	std::cout.flush();
 	id = parser.getLastIndex(req.getURI());
 	model = _personRepository->getById(id);
 	if (!model.has_value())

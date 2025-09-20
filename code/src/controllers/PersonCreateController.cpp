@@ -16,7 +16,8 @@ void PersonCreateController::handleRequest(Poco::Net::HTTPServerRequest &req,
 	std::string body = "", tmp;
 	while (req.stream() >> tmp)
 		body += tmp;
-	std::cout << body << "\n";
+	std::cout << "Get json to Create:\n" << body << "\n";
+	std::cout.flush();
 	correctJson = model.fromJson(body, true);
 	if (!correctJson)
 	{
