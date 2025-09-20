@@ -15,7 +15,7 @@ std::optional<PersonModel> PersonRepository::getById(uint32_t id) const
 {
 	std::vector<PersonTuple> person;
 	PersonModel result;
-	*_session << "SELECt name, age, work, address FROM persons where id = $1", Poco::Data::Keywords::use(id), 
+	*_session << "SELECT id, name, age, work, address FROM persons where id = $1", Poco::Data::Keywords::use(id), 
 							Poco::Data::Keywords::into(person),
 							Poco::Data::Keywords::now;
 	if (person.size() == 0)
