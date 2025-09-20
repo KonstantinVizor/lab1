@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
       - name: build backend
         run: |
-          docker build -t backend:latest -f ./backend.dockerfile --target=release
+          docker build -t backend:latest -f ./backend.dockerfile . --target=release
           docker save backend:latest > backend.tar
       - uses: actions/upload-artifact@v4 
         with: 
@@ -27,7 +27,7 @@ jobs:
           path: backend.tar
       - name: build tests
         run: |
-          docker build -t backend:latest -f ./backend.dockerfile --target=build
+          docker build -t backend:latest -f ./backend.dockerfile . --target=build
           docker save tests:latest > tests.tar
       - uses: actions/upload-artifact@v4 
         with: 
